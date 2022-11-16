@@ -16,15 +16,14 @@
     "docs:serve": "vitepress serve markdown"
   },
   "packages": {
-    "": {
-      "name": "docs",
-      "version": "1.0.0",
-      "license": "MIT",
-      "devDependencies": {
-        "mermaid": "^9.2.2",
-        "vitepress": "^1.0.0-alpha.29",
-        "vitepress-plugin-mermaid": "^2.0.8",
-        "vue": "^3.2.45"
-      }
+    "name": "docs",
+    "version": "1.0.0",
+    "license": "MIT",
+    "devDependencies": {
+      "mermaid": "^9.2.2",
+      "vitepress": "^1.0.0-alpha.29",
+      "vitepress-plugin-mermaid": "^2.0.8",
+      "vue": "^3.2.45"
     }
+  }
 }
