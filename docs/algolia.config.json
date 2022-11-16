@@ -2,12 +2,12 @@
   "index_name": "miservio-docs",
   "start_urls": ["https://maverick0bg.github.io/miserv.io/"],
   "selectors": {
-    "lvl0": "#content h1",
-    "lvl1": "#content h2",
-    "lvl2": "#content h3",
-    "lvl3": "#content h4",
-    "lvl4": "#content h5",
-    "lvl5": "#content h6",
-    "text": "#content header p,#content section p,#content section ol"
+    "lvl0": "h1",
+    "lvl1": "h2",
+    "lvl2": "h3",
+    "lvl3": "h4",
+    "lvl4": "h5",
+    "lvl5": "h6",
+    "text": "p, li"
   }
 }
