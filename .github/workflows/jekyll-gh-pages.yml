@@ -53,7 +53,7 @@ jobs:
         shell: bash
         run: |
           cd docs
-          yarn install --frozen-lockfile
+          yarn install --immutable
           yarn docs:build
 
       - name: Rebuild search index
