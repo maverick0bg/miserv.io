@@ -26,43 +26,43 @@ jobs:
     environment:
       name: github-pages
     runs-on: ubuntu-latest
-  steps:
-    - uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 3.1.2
-        bundler-cache: true
-        cache-version: 1
-          
-    - uses: actions/cache@v3
-      with:
-        path: vendor/bundle
-        key: ${{ runner.os }}-gems-${{ inputs.ruby-version }}-${{ inputs.cache-version }}
-        restore-keys: |
-            ${{ runner.os }}-gems-${{ inputs.ruby-version }}-${{ inputs.cache-version }}
+    steps:
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1.2
+          bundler-cache: true
+          cache-version: 1
 
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 16
-        cache: yarn
+      - uses: actions/cache@v3
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ inputs.ruby-version }}-${{ inputs.cache-version }}
+          restore-keys: |
+              ${{ runner.os }}-gems-${{ inputs.ruby-version }}-${{ inputs.cache-version }}
 
-    - name: Build site
-      run: |
-        cd docs
-        yarn install --frozen-lockfile
-        yarn docs:build
-      shell: bash
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: yarn
 
-    - name: Rebuild search index
-      env:
-        ALGOLIA_API_KEY: '${{ secrets.ALGOLIA_API_KEY }}'
-      run: |
-        # Bundle install
-        bundle config path vendor/bundle
-        cd docs
-        bundle install --jobs 4 --retry 3
-        # Updating Algolia Index
-        bundle exec jekyll algolia
-      shell: bash  
+      - name: Build site
+        shell: bash
+        run: |
+          cd docs
+          yarn install --frozen-lockfile
+          yarn docs:build
+
+      - name: Rebuild search index
+        env:
+          ALGOLIA_API_KEY: '${{ secrets.ALGOLIA_API_KEY }}'
+        shell: bash
+        run: |
+          # Bundle install
+          bundle config path vendor/bundle
+          cd docs
+          bundle install --jobs 4 --retry 3
+          # Updating Algolia Index
+          bundle exec jekyll algolia
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1.0.4
