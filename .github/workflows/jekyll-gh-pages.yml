@@ -63,7 +63,7 @@ jobs:
         run: |
           # Bundle install
           bundle config path vendor/bundle
-          cd docs/.vitepress/dist
+          cd docs/markdown/.vitepress/dist
           bundle install --jobs 4 --retry 3
           # Updating Algolia Index
           bundle exec jekyll algolia
