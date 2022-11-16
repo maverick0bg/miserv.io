@@ -39,3 +39,7 @@ node_modules/
 
 # vitepress
 docs/markdown/.vitepress/dist/
+
+# lock
+**.lock
+**.lock
