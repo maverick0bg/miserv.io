@@ -41,5 +41,5 @@ node_modules/
 docs/markdown/.vitepress/dist/
 
 # lock
-**.lock
-**lock*
+**/*.lock
+**/*lock*
