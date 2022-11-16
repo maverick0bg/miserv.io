@@ -63,6 +63,7 @@ jobs:
         run: |
           # Bundle install
           cp docs/Gemfile* docs/markdown/.vitepress/dist
+          cp docs/_config.yml docs/markdown/.vitepress/dist
           cd docs/markdown/.vitepress/dist
           bundle config path ../../../vendor/bundle
           bundle install --jobs 4 --retry 3
