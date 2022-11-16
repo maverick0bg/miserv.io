@@ -4,7 +4,7 @@ name: Deploy Jekyll with GitHub Pages dependencies preinstalled
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
+    branches: ["main", "feature/documentation_as_a_code"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -23,21 +23,54 @@ concurrency:
 jobs:
   # Build job
   build:
+    environment:
+      name: github-pages
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1.0.6
-        with:
-          source: ./docs
-          destination: ./_site
+  steps:
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.1.2
+        bundler-cache: true
+        cache-version: 1
+          
+    - uses: actions/cache@v3
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ inputs.ruby-version }}-${{ inputs.cache-version }}
+        restore-keys: |
+            ${{ runner.os }}-gems-${{ inputs.ruby-version }}-${{ inputs.cache-version }}
+
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+        cache: yarn
+
+    - name: Build site
+      shell: bash
+      run: |
+        cd docs
+        yarn install --frozen-lockfile
+        yarn docs:build
+        
+    - name: Rebuild search index
+      env:
+        ALGOLIA_API_KEY: '${{ secrets.ALGOLIA_API_KEY }}'
+      shell: bash  # Deployment job
+      run: |
+
+        # Bundle install
+        bundle config path vendor/bundle
+        cd docs
+        bundle install --jobs 4 --retry 3
+
+        # Updating Algolia Index
+        bundle exec jekyll algolia
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1.0.4
+        with:
+          path: docs/markdown/.vitepress/dist
 
-  # Deployment job
   deploy:
     environment:
       name: github-pages

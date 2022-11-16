@@ -1,0 +1,4 @@
+algolia:
+   application_id: 2OOIGY80VU
+   index_name: miservio-docs 
+   search_only_api_key: fec5b03dbb9ec32368c34d3b660cfda3
