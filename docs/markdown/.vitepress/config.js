@@ -1,7 +1,7 @@
 export default {
   title: 'My custom title',
   description: 'Just playing around.',
-  base: '/miserv.io/'
+  base: '/miserv.io/',
   themeConfig: {
     sidebar: [
       {
