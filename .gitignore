@@ -37,8 +37,5 @@ vendor/
 node_modules/
 .pnp*
 
-# lock files
-*.lock
-
 # vitepress
 docs/markdown/.vitepress/dist/
