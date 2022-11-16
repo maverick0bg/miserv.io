@@ -64,7 +64,8 @@ jobs:
           # Bundle install
           mkdir _site
           ls -la
-          cp docs/markdown/.vitepress/dist/* _site
+          cp -r docs/markdown/.vitepress/dist/* _site
+          ls -la _site
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
           # Updating Algolia Index
