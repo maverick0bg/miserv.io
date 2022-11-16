@@ -51,7 +51,7 @@ jobs:
         cd docs
         yarn install --frozen-lockfile
         yarn docs:build
-        
+
     - name: Rebuild search index
       env:
         ALGOLIA_API_KEY: '${{ secrets.ALGOLIA_API_KEY }}'
