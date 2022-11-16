@@ -62,11 +62,13 @@ jobs:
         shell: bash
         run: |
           # Bundle install
-          bundle config path vendor/bundle
+          cp Gemfile* docs/markdown/.vitepress/dist
           cd docs/markdown/.vitepress/dist
+          bundle config path ../../../vendor/bundle
           bundle install --jobs 4 --retry 3
           # Updating Algolia Index
           bundle exec jekyll algolia
+          rm Gemfile*
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1.0.4
