@@ -64,7 +64,7 @@ jobs:
           # Bundle install
           mkdir _site
           ls -la
-          cp docs/markdown/.vuepress/dist/* _site
+          cp docs/markdown/.vitepress/dist/* _site
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
           # Updating Algolia Index
