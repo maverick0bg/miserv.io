@@ -63,7 +63,7 @@ jobs:
 
       - name: Rebuild search index
         env:
-          API_KEY: '${{ secrets.ALGOLIA_API_KEY }}'
+          ALGOLIA_API_KEY: '${{ secrets.ALGOLIA_API_KEY }}'
           ALGOLIA_APP_ID: '${{ secrets.ALGOLIA_APPLICATION_ID }}'
         shell: bash
         run: |
