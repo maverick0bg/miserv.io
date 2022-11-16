@@ -62,16 +62,14 @@ jobs:
         shell: bash
         run: |
           # Bundle install
-          cp docs/Gemfile* docs/markdown/.vitepress/dist
-          cp docs/_config.yml docs/markdown/.vitepress/dist
-          cd docs/markdown/.vitepress/dist
-          dir
-          bundle config path ../../../vendor/bundle
+          mkdir _site
+          ls -la
+          cp docs/markdown/.vuepress/dist/* _site
+          bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
           # Updating Algolia Index
           bundle exec jekyll algolia
-          rm Gemfile*
-          cd ../../../
+          rm -rf _site
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1.0.4
