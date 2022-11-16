@@ -62,9 +62,10 @@ jobs:
         shell: bash
         run: |
           # Bundle install
+          cd docs
           mkdir _site
           ls -la
-          cp -r docs/markdown/.vitepress/dist/* _site
+          cp -r markdown/.vitepress/dist/* _site
           ls -la _site
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
