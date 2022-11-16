@@ -16,8 +16,8 @@ experimenting are:
 
 ## The SDLC process used
 
-'''mermaid
-stateDiagram
+```mermaid
+    stateDiagram
     Plan --> Code
     Code --> Build
     Build --> Test
