@@ -30,19 +30,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 3.1.2
-          bundler-cache: true
-          cache-version: 1
-
-      - uses: actions/cache@v3
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ inputs.ruby-version }}-${{ inputs.cache-version }}
-          restore-keys: |
-              ${{ runner.os }}-gems-${{ inputs.ruby-version }}-${{ inputs.cache-version }}
-
       - uses: actions/setup-node@v3
         with:
           node-version: 16
@@ -55,23 +42,6 @@ jobs:
           cd docs
           yarn install --immutable
           yarn docs:build
-
-      - name: Rebuild search index
-        env:
-          ALGOLIA_API_KEY: '${{ secrets.ALGOLIA_API_KEY }}'
-        shell: bash
-        run: |
-          # Bundle install
-          cd docs
-          mkdir _site
-          ls -la
-          cp -r markdown/.vitepress/dist/* _site
-          ls -la _site
-          bundle config path vendor/bundle
-          bundle install --jobs 4 --retry 3
-          # Updating Algolia Index
-          bundle exec jekyll algolia
-          rm -rf _site
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1.0.4
@@ -88,3 +58,13 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1.2.2
+
+      - uses: actions/checkout@v3
+
+      - name: Rebuild search index
+        env:
+          API_KEY: '${{ secrets.ALGOLIA_API_KEY }}'
+          APPLICATION_ID: '${{ secrets.ALGOLIA_APPLICATION_ID }}'
+        shell: bash
+        run: |
+          docker run -it -e "CONFIG=$(cat docs/algolia.config.json | jq -r tostring)" algolia/docsearch-scraper:v1.16.0
