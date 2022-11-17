@@ -9,8 +9,8 @@ export default withMermaid({
       {
         text: 'Guide',
         items: [
-          {text: 'Introduction', link: '/introduction'},
-          {text: 'Getting Started', link: '/getting-started'}
+          {text: 'SDLC', link: '/sdlc'},
+          {text: 'Planning', link: '/planning'}
         ]
       }
     ],
