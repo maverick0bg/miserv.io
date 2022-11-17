@@ -2,7 +2,7 @@
 layout: doc
 ---
 
-## The SDLC process used
+# The SDLC process used
 
 ```mermaid
     stateDiagram
@@ -15,5 +15,6 @@ layout: doc
     Operate --> Monitor
     Monitor --> Plan
 ```
+
 
 

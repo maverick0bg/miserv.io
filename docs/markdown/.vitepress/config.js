@@ -1,8 +1,8 @@
 import {withMermaid} from "vitepress-plugin-mermaid";
 
 export default withMermaid({
-  title: 'My custom title',
-  description: 'Just playing around.',
+  title: 'MiServ.io',
+  description: 'Microservices dojo.',
   base: '/miserv.io/',
   themeConfig: {
     sidebar: [
