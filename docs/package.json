@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "packageManager": "yarn@3.2.4",
+  "packageManager": "npm",
   "devDependencies": {
-    "mermaid": "^9.2.2",
-    "vitepress": "^1.0.0-alpha.29",
-    "vitepress-plugin-mermaid": "^2.0.8",
-    "vue": "^3.2.45"
+    "mermaid": "9.2.2",
+    "vitepress": "1.0.0-alpha.29",
+    "vitepress-plugin-mermaid": "2.0.8",
+    "vue": "3.2.45"
   },
   "scripts": {
     "docs:dev": "vitepress dev markdown",
@@ -20,10 +20,10 @@
     "version": "1.0.0",
     "license": "MIT",
     "devDependencies": {
-      "mermaid": "^9.2.2",
-      "vitepress": "^1.0.0-alpha.29",
-      "vitepress-plugin-mermaid": "^2.0.8",
-      "vue": "^3.2.45"
+      "mermaid": "9.2.2",
+      "vitepress": "1.0.0-alpha.29",
+      "vitepress-plugin-mermaid": "2.0.8",
+      "vue": "3.2.45"
     }
   }
 }

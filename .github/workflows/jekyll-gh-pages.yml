@@ -38,8 +38,8 @@ jobs:
         shell: bash
         run: |
           cd docs
-          yarn install --immutable
-          yarn docs:build
+          npm install 
+          npm run docs:build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1.0.4
