@@ -30,7 +30,7 @@ concurrency:
 
 jobs:
   # Build job
-  build documentation:
+  build:
     environment:
       name: github-pages
     runs-on: ubuntu-latest
