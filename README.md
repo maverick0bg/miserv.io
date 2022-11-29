@@ -1,14 +1,4 @@
 # miserv.io
-Concept for application with microservicess architecture and event driven approach
-
-```mermaid
-sequenceDiagram
-Alice ->> Bob: Hello Bob, how are you?
-Bob-->>John: How about you John?
-Bob--x Alice: I am good thanks!
-Bob-x John: I am good thanks!
-Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
-
-Bob-->Alice: Checking with John...
-Alice->John: Yes... John, how are you?
-```
+Concept for application with micro-servicess architecture and event driven approach
+[Documentation is available here](https://maverick0bg.github.io/miserv.io)
+[Contributors](/contributors)

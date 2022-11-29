@@ -4,7 +4,12 @@ name: Buld and deploy Documentation
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main", "feature/documentation_as_a_code"]
+    branches: ["main"]
+    paths:
+      - "docs/**"
+      - "**/build-documentation.yml"
+  pull_request:
+    branches: ["main"]
     paths:
       - "docs/**"
       - "**/build-documentation.yml"
@@ -26,8 +31,6 @@ concurrency:
 jobs:
   # Build job
   build:
-    environment:
-      name: github-pages
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -50,6 +53,7 @@ jobs:
           path: docs/markdown/.vitepress/dist
 
   deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
