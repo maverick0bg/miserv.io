@@ -8,6 +8,11 @@ on:
     paths:
       - "docs/**"
       - "**/build-documentation.yml"
+  pull_request:
+    branches: ["main"]
+    paths:
+      - "docs/**"
+      - "**/build-documentation.yml"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -25,7 +30,7 @@ concurrency:
 
 jobs:
   # Build job
-  build:
+  build documentation:
     environment:
       name: github-pages
     runs-on: ubuntu-latest
@@ -50,6 +55,7 @@ jobs:
           path: docs/markdown/.vitepress/dist
 
   deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
