@@ -1,4 +1,5 @@
-#Contributors guide
+# Contributing guide
+
 1. Clone the repository
 2. Create a new branch for your changes
 3. Make your changes
