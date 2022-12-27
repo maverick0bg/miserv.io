@@ -1,3 +1,6 @@
 [submodule "miserv.io-axon-server"]
 	path = miserv.io-axon-server
 	url = https://github.com/maverick0bg/miserv.io-axon-server.git
+[submodule "miserv.io-infrastructure"]
+	path = miserv.io-infrastructure
+	url = https://github.com/maverick0bg/miserv.io-infrastructure.git
