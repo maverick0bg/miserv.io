@@ -25,12 +25,12 @@ infrastructure
 
 ```mermaid
 stateDiagram
-On Push Or PR --> Checkout
+"On Push Or PR" --> Checkout
 Checkout --> Lint
 Lint --> Build
 Build --> Upload
-Upload --> Deploy to GitHub Pages
-Deploy to GitHub Pages --> Rebuild search index
+Upload --> "Deploy to GitHub Pages"
+"Deploy to GitHub Pages" --> "Rebuild search index"
 ```
 
 ### Business functionallity
