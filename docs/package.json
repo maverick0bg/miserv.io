@@ -24,10 +24,8 @@
       "mermaid": "9.2.2",
       "vitepress": "1.0.0-alpha.29",
       "vitepress-plugin-mermaid": "2.0.8",
-      "vue": "3.2.45"
+      "vue": "3.2.45",
+      "markdownlint-cli": "^0.33.0"
     }
-  },
-  "dependencies": {
-    "markdownlint-cli": "^0.33.0"
   }
 }
