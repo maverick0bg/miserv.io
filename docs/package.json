@@ -14,7 +14,7 @@
     "docs:dev": "vitepress dev markdown",
     "docs:build": "vitepress build markdown",
     "docs:serve": "vitepress serve markdown",
-    "docs:lint": "markdownlint-cli ."
+    "docs:lint": "markdownlint ./markdown"
   },
   "packages": {
     "name": "docs",
