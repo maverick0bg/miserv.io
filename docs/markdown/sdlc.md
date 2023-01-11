@@ -15,6 +15,3 @@ layout: doc
     Operate --> Monitor
     Monitor --> Plan
 ```
-
-
-

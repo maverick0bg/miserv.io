@@ -40,6 +40,13 @@ jobs:
         with:
           node-version: 16
 
+      - name: Lint
+        shell: bash
+        run: |
+          cd docs
+          npm install 
+          npm run docs:lint
+
       - name: Build site
         shell: bash
         run: |

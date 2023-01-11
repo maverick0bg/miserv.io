@@ -13,7 +13,8 @@
   "scripts": {
     "docs:dev": "vitepress dev markdown",
     "docs:build": "vitepress build markdown",
-    "docs:serve": "vitepress serve markdown"
+    "docs:serve": "vitepress serve markdown",
+    "docs:lint": "markdownlint-cli ."
   },
   "packages": {
     "name": "docs",
@@ -25,5 +26,8 @@
       "vitepress-plugin-mermaid": "2.0.8",
       "vue": "3.2.45"
     }
+  },
+  "dependencies": {
+    "markdownlint-cli": "^0.33.0"
   }
 }
