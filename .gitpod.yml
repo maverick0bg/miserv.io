@@ -1,2 +1,7 @@
 image:
   file: .gitpod.Dockerfile
+
+tasks:
+  - name: configure environment
+    command: |
+      export PATH="$HOME/bin:$PATH"
