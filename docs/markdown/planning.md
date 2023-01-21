@@ -2,7 +2,7 @@
 layout: doc
 ---
 
-# Planning phase explined
+# Planning phase explained
 
 During the planning phase we capture requirements, business use cases and
 business processes. We also define the scope of the project and the project
