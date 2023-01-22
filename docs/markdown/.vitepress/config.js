@@ -10,7 +10,11 @@ export default withMermaid({
         text: 'Guide',
         items: [
           {text: 'SDLC', link: '/sdlc'},
-          {text: 'Planning', link: '/planning'}
+          {text: 'Planning', link: '/planning'},
+          {text: 'Source control and branching strategy', link: '/coding'},
+          {text: 'CI/CD', link: '/pipelines'},
+          {text: 'Infrastructure as a code', link: '/infrastructure'},
+          {text: 'Business functionality', link: '/business'},
         ]
       }
     ],
