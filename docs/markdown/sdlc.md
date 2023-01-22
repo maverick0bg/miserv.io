@@ -6,8 +6,8 @@ layout: doc
 
 ```mermaid
     stateDiagram
-    Plan --> Code
-    Code --> Build
+    Plan --> Develop
+    Develop --> Build
     Build --> Test
     Test --> Release
     Release --> Deploy
