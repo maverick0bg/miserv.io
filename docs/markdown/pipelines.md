@@ -1,7 +1,13 @@
 ---
 layout: doc
 ---
+
 # Пайплайни
+
+Пайплайните са дефинирани като GitHub Actions. Те се изпълняват при конкретно
+действие в source control repository-то. Пайплайните се намират в папката `.github/workflows`.
+За различните видове код се прилагат различни пайплайни в зависимост от
+спецификата на съответната технология.
 
 ## Ci/CD за документацията
 
@@ -43,7 +49,37 @@ Deploy --> [*]
 
 ## CI/CD за инфраструктурата
 
+### На PR
+
 ```mermaid
 stateDiagram
-Trigger : On Push
+Trigger : On PR
 Lint : Lint code
+Plan : Plan infrastructure\nchanges
+[*] --> Trigger
+Trigger --> Checkout
+Checkout --> Format
+Format --> [*]
+Checkout --> Lint
+Lint --> [*]
+Checkout --> Validate
+Validate --> Plan
+Plan --> [*]
+```
+
+### На Push
+
+```mermaid
+stateDiagram
+Trigger : On PR
+Apply : Apply infrastructure\nchanges
+[*] --> Trigger
+Trigger --> Checkout
+Checkout --> Validate
+Checkout --> Format
+Format --> [*]
+Checkout --> Lint
+Lint --> [*]
+Validate --> Apply
+Apply --> [*]
+```
