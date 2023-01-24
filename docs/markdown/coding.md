@@ -32,10 +32,10 @@ Branching Strategies](https://www.flagship.io/git-branching-strategies/).
 test
 5. При някакви проблеми с кода или документацията, team member-а прави промени
 във feature branch-а си и push-ва към PR-а.
-6. Друг team member прави code review и ако е необходимо прави промени във
-7. Отново промени във feature branch-а си и push-ва към PR-а. Като 6 и 7 могат
-да се повторят многократно
-8. Когато се установи завършеност, PR-а се merge-ва в master branch-а, като
+6. Друг team member прави code review и ако е необходимо team member прави
+отново промени във feature branch-а си и push-ва към PR-а. 6 move да се повторя
+многократно
+7. Когато се установи завършеност, PR-а се merge-ва в master branch-а, като
 се зипълняват CI/CD pipeline-ите за проверка на кода и документацията, build
 deploy и test
 
