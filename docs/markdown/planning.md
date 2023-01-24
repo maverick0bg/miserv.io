@@ -11,7 +11,7 @@ process where we continuously refine the requirements and the scope of the
 project. As a result of the planning phase we have many tasks that need to be
  executed. These tasks are captured in the backlog of the project.
 
-All tasks are written down in the backlog of the project in GitHub Projects.
+All tasks are written down in the backlog of the project in [GitHub Projects](https://github.com/maverick0bg/miserv.io/edit/main/docs/markdown/planning.md).
 They are with priority and are planned in 1week sprints. The backlog is the
 single source of truth for the project.
 
