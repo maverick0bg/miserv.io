@@ -11,7 +11,7 @@ Actions. Всеки компонент елемент и име се създа�
 ## Компоненти и подход за създаването им
 
 1. Мрежа - създава се чрез terraform module terraform-aws-modules/vpc/aws
-   1. три субнета - public, private, database
+   1. три събнета - public, private, database
    2. nat gateway
    3. dns
 2. Kubernetes cluster - създава се чрез terraform module
