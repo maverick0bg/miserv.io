@@ -16,6 +16,7 @@ export default withMermaid({
           {text: 'CI/CD', link: '/pipelines'},
           {text: 'Infrastructure as a code', link: '/infrastructure'},
           {text: 'Business functionality', link: '/business'},
+          {text: 'TODO', link: '/TODO'},
         ]
       }
     ],
